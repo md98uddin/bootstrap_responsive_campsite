@@ -16,18 +16,27 @@ header h2 {
   color: #cec8ff;
 }
 
-footer {
-    background-image: linear-gradient(#CEC8FF, white);
+.site-footer {
+  background-image: linear-gradient(#cec8ff, white);
 }
 
 .jumbotron {
-    padding: 30px;
-    background-image: linear-gradient(to right, #5637DD, #3046C5, #60160B);
-    color: white;
+  margin: 0;
+  padding: 30px;
+  background-image: linear-gradient(to right, #5637dd, #3046c5, #60160b);
+  color: white;
 }
 
 .row-content {
-    padding: 50px 0;
-    border-bottom: 1px ridge;
-    min-height: 200px;
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px;
+}
+
+.navbar {
+  background-color: #901cad;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #2f24d1, #1508cf, #56048c, #7612b8 );
 }
