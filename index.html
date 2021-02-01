@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
-    <link rel="stylesheet" href="css/styles.css"/>
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
     <title>NuCamp: A Better Way To Camp</title>
 </head>
 
@@ -24,11 +26,69 @@
                     <h2>a better way to camp</h2>
                 </div>
                 <div class="col col-md-4 col-xl-2 align-self-center mt-4">
-                    <a href="#reserveForm" class="btn btn-lg btn-primary ml-md-1 text-nowrap" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Or call us at <br/> <strong>1-206-855-9201</strong>">RESERVE A CAMPSITE</a>
+                    <a role="button" data-toggle="modal" data-target="#reserveModal" class="btn btn-lg btn-primary ml-md-1 text-nowrap" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Or call us at <br/> <strong>1-206-855-9201</strong>">RESERVE A CAMPSITE</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <div class="modal fade" role="dialog" id="reserveModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info ">
+                    <h3 class="modal-title text-white">Reserve a Campsite</h3>
+                    <button class="close" type="button" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="">
+                        <div class="form-group row mb-3">
+                            <div class="col-12 col-sm-6">
+                                <label for="numCampers" class="col-form-label">Number of Campers</label>
+                            </div>
+                            <div class="col">
+                                <select name="numCampers" id="numCampers" class="form-control">
+                                    <option selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 col-sm-6">
+                                <label for="date" class="col-form-label">Date</label>
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control" id="date" name="date">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-12 col-sm-6 col-form-label">Campsite Type</label>
+                            <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success active">
+                                    <input type="checkbox" checked autocomplete="off" name="siteType" id="siteTent" value="tent"> Tent
+                                </label>
+                                <label class="btn btn-secondary active bg-primary">
+                                    <input type="checkbox" checked autocomplete="off" name="siteType" id="siteRV" value="RV"> RV
+                                  </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col mt-2">
+                                <button class="btn btn-md bg-secondary text-white" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-md btn-primary" type="submit" >Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
         <div class="container">
@@ -37,10 +97,10 @@
             </a>
             <div class="collapse navbar-collapse" id="nucampNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="index.html"><i class="fa fa-home fa-lg"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html"><i class="fa fa-info fa-lg"></i>About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-list fa-lg"></i>Sites</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html"><i class="fa fa-address-card fa-lg"></i>Contact</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="index.html"><i class="fa fa-home fa-lg mr-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html"><i class="fa fa-info fa-lg mr-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-list fa-lg mr-1"></i>Sites</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactus.html"><i class="fa fa-address-card fa-lg mr-1"></i>Contact</a></li>
                 </ul>
                 <span class="navbar-text ml-auto">
                     <a role="button" data-toggle="modal" data-target="#loginModal">
@@ -145,6 +205,9 @@
                         </span>
                         <span class="sr-only">Next</span>
                     </a>
+                        <button class="btn btn-danger btn-sm" id="carouselButton">
+                            <i class="fa fa-pause" id="carouselPlay"></i>
+                        </button>
                 </div>
             </div>
         </div>
@@ -192,49 +255,6 @@
         </div>
     </div>
 
-    <div class="row row-content">
-        <div class="col col-sm-6 mx-auto">
-            <div class="card">
-                <h3 class="card-header bg-info text-white">
-                    Reserve a Campsite
-                </h3>
-                <div class="card-body">
-                    <form id="reserveForm" class="form-group">
-                        <div class="row mb-3">
-                            <div class="col-12 col-sm-6">
-                                <label class="col-form-label" for="numCampers">Number of Campers</lablel>
-                            </div>
-                            <div class="col">
-                                <select name="numCampers" id="numCampers" class="form-control">
-                                    <option selected>Select</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-sm-6">
-                                <label for="date" class="col-form-label">Date</label>
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="date" id="date" name="date" placeholder="" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col py-3">
-                                <button class="btn btn-primary ">Search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -262,16 +282,12 @@
         </div>
     </footer>
 
-             <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->
-             <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-             <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-             <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-             <script>
-                $(function () {
-                    $('[data-toggle="tooltip"]').tooltip()
-                })
-            </script>
+    <!-- build:js js/main.js -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
